@@ -22,6 +22,36 @@
         console.log(err); 
       })
     }
+    bt2.onclick = function(){
+      axios.delete('http://127.0.0.1:8090/admin/category/6').then((result)=>{
+        console.log('删除类别执行成功：');
+        console.log(result.data);
+      }).catch((err)=>{
+        console.log(err); 
+      })
+    }
+    bt3.onclick=function(){
+      //向服务器发送json类型的请求数据
+      var data={cname:'汤品类'}
+      axios.post('http://127.0.0.1:8090/admin/category',data)
+        .then((result)=>{
+          console.log('添加新的类别成功');
+          console.log(result.data)
+        }).catch((err)=>{
+          console.log(err); 
+        })
+    }
+    bt4.onclick=function(){
+      //向服务器发送json类型的请求数据
+      var data={cid:20,cname:'汤品类'}
+      axios.put('http://127.0.0.1:8090/admin/category',data)
+        .then((result)=>{
+          console.log('类别修改成功');
+          console.log(result.data)
+        }).catch((err)=>{
+          console.log(err); 
+        })
+    }
   </script>
 </body>
 </html>
